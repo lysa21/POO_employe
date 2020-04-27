@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content=" initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+
+<body>
+  <form id='formulaire' method="POST" action="/">
+    <label for="matricule">Matricule</label>
+    <input type="number" name="matricule" id="matricule">
+    <label for="nom">Nom</label>
+    <input type="text" name="nom" id="nom">
+    <label for="prenom">Prénom</label>
+    <input type="text" name="prenom" id="prenom">
+    <label for="naissance">Date de naissance</label>
+    <input type="date" name="naissance" id="naissance">
+    <label for="embauche">Embauche</label>
+    <input type="date" name="embauche" id="embauche">
+    <label for="salaire">Salaire</label>
+    <input type="number" name="salaire" id="salaire">
+    <input type="submit" value="Calculer">
+  </form>
+
+  <h1>Résultat : </h1>
+
+  <div id="affichage">
+  </div>
+</body>
+<script type="module" src="./index.mjs"></script>
+
+</html>
