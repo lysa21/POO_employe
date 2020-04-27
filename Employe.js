@@ -45,7 +45,7 @@ export default class Employe {
     this._prenom = prenom;
     this._dateNaissance = dateNaissance;
     this._dateEmbauche = dateEmbauche;
-    this._salaire = salaire;
+    this.salaire = salaire;
   }
 
   // Getter and Setter for call attributes or set attributs of instances of class
@@ -93,12 +93,34 @@ export default class Employe {
   }
 
   get salaire() {
-    this.augmenterSalaireByAnciennete()
+    this._augmenterSalaireByAnciennete()
     return this._salaire;
   }
 
   set salaire(salaire) {
-    this._salaire = salaire;
+    this._salaire = parseFloat(salaire);
+  }
+
+  get age() {
+    return this._calculeYears(this._dateNaissance);
+  }
+
+  get anciennete() {
+    return this._calculeYears(this._dateEmbauche);
+  }
+
+  _augmenterSalaireByAnciennete() {
+    console.log(this._salaire)
+    if (this.anciennete < 5) {
+      this._salaire += (2 / 100) * this._salaire;
+      console.log(this._salaire)
+
+    } else if (this.anciennete < 10) {
+      this._salaire += (5 / 100) * this._salaire;
+    } else {
+      this._salaire += (10 / 100) * this._salaire;
+    }
+    console.log(this._salaire)
   }
 
   _calculeYears(dateString) {
@@ -110,24 +132,6 @@ export default class Employe {
       years--;
     }
     return years;
-  }
-
-  get age() {
-    return this._calculeYears(this._dateNaissance);
-  }
-
-  get anciennete() {
-    return this._calculeYears(this._dateEmbauche);
-  }
-
-  augmenterSalaireByAnciennete() {
-    if (this.anciennete < 5) {
-      this._salaire += (2 / 100) * this._salaire;
-    } else if (this.anciennete < 10) {
-      this._salaire += (5 / 100) * this._salaire;
-    } else {
-      this._salaire += (10 / 100) * this._salaire;
-    }
   }
 
   afficherEmploye(div) {
